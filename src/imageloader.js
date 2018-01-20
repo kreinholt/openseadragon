@@ -73,6 +73,11 @@ ImageJob.prototype = {
         var self = this;
         var selfAbort = this.abort;
 
+        if (this.src == 'FAKE'){
+            this.finish(false);
+            return;
+        }
+
         this.image = new Image();
 
         this.image.onload = function(){
